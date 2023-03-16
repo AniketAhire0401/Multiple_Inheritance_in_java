@@ -1,0 +1,88 @@
+package basic;
+import java.util.*;
+class bank
+{
+	int acc_no,withdraw_amt,deposite_amt;
+	String holder_name,acc_type;
+	Scanner sc = new Scanner(System.in);
+	void info()
+	{
+		System.out.println("----STATE BANK OF INDIA----");
+		System.out.print("Enter 8 Digit Account Number : ");
+		acc_no=sc.nextInt();
+		System.out.print("Enter Account Holder Name    : ");
+		holder_name=sc.next();
+		System.out.println("Accunt Type(Saving/Current) : ");
+		acc_type=sc.next();
+		
+	}
+	
+}
+
+class saving extends bank
+{
+	void deposite()
+	{
+		System.out.println("Enter Deposite Amount : ");
+		deposite_amt=sc.nextInt();
+	}
+	
+	
+}
+
+class current extends bank
+{
+
+	void withdraw()
+	{
+		System.out.println("Enter Withdram Amount : ");
+		withdraw_amt=sc.nextInt();
+	}
+	
+}
+
+public class Multilevel_Inheritance {
+
+	public static void main(String[] args) {
+		current c = new current();
+		saving s = new saving();
+		
+		Scanner sc = new Scanner(System.in);
+		
+		int ch;
+		
+		System.out.println("-----------------------");
+		System.out.println("1.Deposite Money ");
+		System.out.println("2.Withdraw Money ");
+		System.out.println("3.Exit");
+		System.out.println("-----------------------");
+		
+do {
+			
+			System.out.print("\nEnter Your Choice : ");
+			ch=sc.nextInt();
+	
+			switch(ch)
+			{
+				case 1:
+					s.info();
+					s.deposite();
+					break;
+				case 2:
+					c.info();
+					c.withdraw();
+				
+					break;
+				case 3:
+					System.out.println("Succesfully Exit....");
+					break;
+				default:
+					System.out.println("Enter Correct Choice");
+					
+		
+			}
+		}while(ch!=3);
+		
+	}
+
+}
